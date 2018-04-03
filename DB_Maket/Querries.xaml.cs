@@ -10,25 +10,29 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace DB_Maket
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Querries.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Querries : Window
     {
-        public MainWindow()
+        public Querries()
         {
             InitializeComponent();
         }
 
-        private void Exit_button_Click(object sender, RoutedEventArgs e)
+        private void Comeback_button_Click(object sender, RoutedEventArgs e)
         {
             AdminMenu am = new AdminMenu();
             am.Show();
+            this.Close();
+        }
+
+        private void Exit_button_Click(object sender, RoutedEventArgs e)
+        {
             this.Close();
         }
     }

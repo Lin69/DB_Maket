@@ -10,25 +10,36 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DB_Maket
+namespace DB_Maket.MyTables
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Diseases_t.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Diseases_f : Window
     {
-        public MainWindow()
+        public Diseases_f()
         {
             InitializeComponent();
         }
 
+        private void Comeback_button_Click(object sender, RoutedEventArgs e)
+        {
+            Forms tb = new Forms();
+            tb.Show();
+            this.Close();
+        }
+
         private void Exit_button_Click(object sender, RoutedEventArgs e)
         {
-            AdminMenu am = new AdminMenu();
-            am.Show();
+            this.Close();
+        }
+
+        private void Go_to_table_Click(object sender, RoutedEventArgs e)
+        {
+            Diseases_t ww = new Diseases_t();
+            ww.Show();
             this.Close();
         }
     }

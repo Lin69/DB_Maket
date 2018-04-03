@@ -54,10 +54,102 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Forms.xaml.cs">
+      <DependentUpon>Forms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyForms\Contraindications_f.xaml.cs">
+      <DependentUpon>Contraindications_f.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyForms\C_M_f.xaml.cs">
+      <DependentUpon>C_M_f.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyForms\Diseases_f.xaml.cs">
+      <DependentUpon>Diseases_f.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyForms\Medicine_f.xaml.cs">
+      <DependentUpon>Medicine_f.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyForms\Met_D_f.xaml.cs">
+      <DependentUpon>Met_D_f.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyForms\Met_M_f.xaml.cs">
+      <DependentUpon>Met_M_f.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyForms\Symptoms_f.xaml.cs">
+      <DependentUpon>Symptoms_f.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyForms\S_D_f.xaml.cs">
+      <DependentUpon>S_D_f.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyForms\Treatment_methoms_f.xaml.cs">
+      <DependentUpon>Treatment_methoms_f.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyForms\Types_of_diseases_f.xaml.cs">
+      <DependentUpon>Types_of_diseases_f.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyForms\Types_of_medcine_f.xaml.cs">
+      <DependentUpon>Types_of_medcine_f.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyTables\Contraindications_t.xaml.cs">
+      <DependentUpon>Contraindications_t.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyTables\C_M_t.xaml.cs">
+      <DependentUpon>C_M_t.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyTables\Diseases_t.xaml.cs">
+      <DependentUpon>Diseases_t.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyTables\Medicine_t.xaml.cs">
+      <DependentUpon>Medicine_t.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyTables\Met_D_t.xaml.cs">
+      <DependentUpon>Met_D_t.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyTables\Met_M_t.xaml.cs">
+      <DependentUpon>Met_M_t.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyTables\Symptoms_t.xaml.cs">
+      <DependentUpon>Symptoms_t.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyTables\S_D_t.xaml.cs">
+      <DependentUpon>S_D_t.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyTables\Treatment_methoms_t.xaml.cs">
+      <DependentUpon>Treatment_methoms_t.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyTables\Types_of_diseases_t.xaml.cs">
+      <DependentUpon>Types_of_diseases_t.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyTables\Types_of_medcine_t.xaml.cs">
+      <DependentUpon>Types_of_medcine_t.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Querries.xaml.cs">
+      <DependentUpon>Querries.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports.xaml.cs">
+      <DependentUpon>Reports.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tables.xaml.cs">
+      <DependentUpon>Tables.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserMenu.xaml.cs">
+      <DependentUpon>UserMenu.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AdminMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AdminMenu.xaml.cs">
+      <DependentUpon>AdminMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -66,6 +158,110 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MyForms\Contraindications_f.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MyForms\C_M_f.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MyForms\Diseases_f.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MyForms\Medicine_f.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MyForms\Met_D_f.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MyForms\Met_M_f.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MyForms\Symptoms_f.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MyForms\S_D_f.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MyForms\Treatment_methoms_f.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MyForms\Types_of_diseases_f.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MyForms\Types_of_medcine_f.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MyTables\Contraindications_t.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyTables\C_M_t.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyTables\Diseases_t.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyTables\Medicine_t.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyTables\Met_D_t.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyTables\Met_M_t.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyTables\Symptoms_t.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyTables\S_D_t.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyTables\Treatment_methoms_t.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyTables\Types_of_diseases_t.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyTables\Types_of_medcine_t.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Querries.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Tables.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="UserMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -93,5 +289,21 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\6Lib88D.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\1215535-biology-wallpaper.jpg" />
+    <Resource Include="Pictures\402522157-biology-wallpapers.jpg" />
+    <Resource Include="Pictures\899119-www.wallpapersfan.com.jpg" />
+    <Resource Include="Pictures\awesome-red-lamborghini-aventador-18-black-wallpaper-4k-wallpapersafari-3840x2160.jpg" />
+    <Resource Include="Pictures\Blue-Wallpaper-7.jpg" />
+    <Resource Include="Pictures\download.jpg" />
+    <Resource Include="Pictures\images.jpg" />
+    <Resource Include="Pictures\molekülerbiyolojiasıl.jpeg" />
+    <Resource Include="Pictures\New-gene-editing-technique-to-cure-incurable-diseases-and-extend-lifespan.jpg" />
+    <Resource Include="Pictures\science-lab-wallpaper-for-android-For-Desktop-Wallpaper.jpg" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
