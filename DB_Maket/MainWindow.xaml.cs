@@ -15,21 +15,46 @@ using System.Windows.Shapes;
 
 namespace DB_Maket
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+   
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+            LoginBox.Items.Add("Врач");
+            LoginBox.Items.Add("Пациент");
         }
+
+        public static bool isAdmin;
 
         private void Exit_button_Click(object sender, RoutedEventArgs e)
         {
-            AdminMenu am = new AdminMenu();
-            am.Show();
             this.Close();
+        }
+
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (PasLogin.Password.Length > 0)        
+                if ((LoginBox.SelectedItem.ToString() == "Врач") & (PasLogin.Password.ToString() == "qwerty"))
+                {
+                    isAdmin = true;
+                    AdminMenu am = new AdminMenu();
+                    am.Show();
+                    this.Close();
+                }
+                else
+                    if ((LoginBox.SelectedItem.ToString() == "Пациент") & (PasLogin.Password.ToString() == "password"))
+                    {
+                    isAdmin = false;
+                    UserMenu um = new UserMenu();
+                        um.Show();
+                        this.Close();
+                    }
+                else
+                    MessageBox.Show("Неправильный логин или пароль");
+            else
+                MessageBox.Show("Неправильный логин или пароль");
         }
     }
 }

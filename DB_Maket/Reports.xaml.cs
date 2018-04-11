@@ -26,9 +26,18 @@ namespace DB_Maket
 
         private void Comeback_button_Click(object sender, RoutedEventArgs e)
         {
-            AdminMenu am = new AdminMenu();
-            am.Show();
-            this.Close();
+            if (MainWindow.isAdmin == true)
+            {
+                AdminMenu am = new AdminMenu();
+                am.Show();
+                this.Close();
+            }
+            else
+            {
+                UserMenu um = new UserMenu();
+                um.Show();
+                this.Close();
+            }
         }
 
         private void Exit_button_Click(object sender, RoutedEventArgs e)

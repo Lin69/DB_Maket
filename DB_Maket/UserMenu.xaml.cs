@@ -24,6 +24,13 @@ namespace DB_Maket
             InitializeComponent();
         }
 
+        private void TablesButton_Click(object sender, RoutedEventArgs e)
+        {
+            Tables tabs = new Tables();
+            tabs.Show();
+            this.Close();
+        }
+
         private void QuarriesButton_Click(object sender, RoutedEventArgs e)
         {
             Querries qur = new Querries();

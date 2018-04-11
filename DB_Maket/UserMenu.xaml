@@ -31,7 +31,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button x:Name="QuarriesButton" Content="Запросы" HorizontalAlignment="Left" Margin="128,141,0,0" VerticalAlignment="Top" Width="218" Height="62" FontFamily="Times New Roman" FontSize="22" FontWeight="Bold" Background="White" RenderTransformOrigin="0.5,0.5" Click="QuarriesButton_Click" BorderBrush="#FF707070">
+        <Button x:Name="QuarriesButton" Content="Запросы" HorizontalAlignment="Left" Margin="134,187,0,0" VerticalAlignment="Top" Width="218" Height="62" FontFamily="Times New Roman" FontSize="22" FontWeight="Bold" Background="White" RenderTransformOrigin="0.5,0.5" Click="QuarriesButton_Click" BorderBrush="#FF707070">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -41,7 +41,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button x:Name="ReportsButton" Content="Отчеты" HorizontalAlignment="Left" Margin="131,259,0,0" VerticalAlignment="Top" Width="218" Height="61" FontFamily="Times New Roman" FontSize="22" FontWeight="Bold" Background="White" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF707070" Click="ReportsButton_Click">
+        <Button x:Name="ReportsButton" Content="Отчеты" HorizontalAlignment="Left" Margin="137,275,0,0" VerticalAlignment="Top" Width="218" Height="61" FontFamily="Times New Roman" FontSize="22" FontWeight="Bold" Background="White" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF707070" Click="ReportsButton_Click">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -52,6 +52,16 @@
             </Button.RenderTransform>
         </Button>
         <Label Content="Добро пожаловать!" HorizontalAlignment="Left" Margin="408,154,0,0" VerticalAlignment="Top" Height="88" Width="374" FontFamily="Times New Roman" FontSize="42" FontWeight="Bold" Foreground="Black" BorderBrush="Black" Background="{x:Null}"/>
+        <Button x:Name="TablesButton" Content="Таблицы" HorizontalAlignment="Left" Margin="133,93,0,0" VerticalAlignment="Top" Width="218" Height="63" FontFamily="Times New Roman" FontSize="22" FontWeight="Bold" Background="#FFFDFEFF" RenderTransformOrigin="0.5,0.5" Click="TablesButton_Click" BorderBrush="#FF707070">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.219"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
 
     </Grid>
 </Window>

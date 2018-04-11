@@ -22,6 +22,19 @@ namespace DB_Maket.MyTables
         public C_M_t()
         {
             InitializeComponent();
+
+            if (MainWindow.isAdmin == true)
+            {
+                Go_to_form.Visibility = Visibility.Visible;
+                Go_to_form.IsEnabled = true;
+
+            }
+            else
+            {
+                Go_to_form.Visibility = Visibility.Collapsed;
+                Go_to_form.IsEnabled = false;
+            }
+
         }
 
         private void Comeback_button_Click(object sender, RoutedEventArgs e)

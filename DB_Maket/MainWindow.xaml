@@ -20,7 +20,7 @@
         <ComboBox x:Name="LoginBox" Grid.Column="1" HorizontalAlignment="Left" Margin="287,186,0,0" VerticalAlignment="Top" Width="188" Background="White" Grid.ColumnSpan="2"/>
         <Label Content="Пользователь" Grid.Column="1" HorizontalAlignment="Left" Margin="184,186,0,0" VerticalAlignment="Top" Height="28" FontFamily="Times New Roman" FontWeight="Bold" Foreground="White" FontSize="14"/>
         <Label Content="Пароль" Grid.Column="1" HorizontalAlignment="Left" Margin="224,225,0,0" VerticalAlignment="Top" Height="27" FontFamily="Times New Roman" FontWeight="Bold" Background="{x:Null}" Foreground="White" FontSize="14"/>
-        <Button x:Name="LoginButton" Content="Войти" Grid.Column="2" HorizontalAlignment="Left" Margin="54,271,0,0" VerticalAlignment="Top" Width="84" Height="30" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Background="White" RenderTransformOrigin="0.5,0.5">
+        <Button x:Name="LoginButton" Content="Войти" Grid.Column="2" HorizontalAlignment="Left" Margin="54,271,0,0" VerticalAlignment="Top" Width="84" Height="30" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Background="White" RenderTransformOrigin="0.5,0.5" Click="LoginButton_Click">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -40,7 +40,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <PasswordBox Grid.Column="1" HorizontalAlignment="Left" Margin="287,230,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="22" Width="188"/>
+        <PasswordBox x:Name="PasLogin" Grid.Column="1" HorizontalAlignment="Left" Margin="287,230,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="22" Width="188"/>
 
     </Grid>
 </Window>
