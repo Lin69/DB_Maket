@@ -42,5 +42,46 @@ namespace DB_Maket.MyTables
             ww.Show();
             this.Close();
         }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if ((contraindicationTextBox.Text == "") || (contraindicationTextBox1.Text == ""))
+                    MessageBox.Show("Данные не удалось обновить");
+                else
+                {
+                    DB_Maket.ASSDataSet aSSDataSet = ((DB_Maket.ASSDataSet)(this.FindResource("aSSDataSet")));
+                    DB_Maket.ASSDataSetTableAdapters.Met_DTableAdapter aSSDataSetMet_DTableAdapter = new DB_Maket.ASSDataSetTableAdapters.Met_DTableAdapter();
+                    aSSDataSetMet_DTableAdapter.Update(aSSDataSet.Met_D);
+                }
+
+                MessageBox.Show("Данные успешно обновлены");
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("Данные не удалось обновить");
+            }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            DB_Maket.ASSDataSet aSSDataSet = ((DB_Maket.ASSDataSet)(this.FindResource("aSSDataSet")));
+            DB_Maket.ASSDataSetTableAdapters.Met_DTableAdapter aSSDataSetMet_DTableAdapter = new DB_Maket.ASSDataSetTableAdapters.Met_DTableAdapter();
+            aSSDataSetMet_DTableAdapter.Fill(aSSDataSet.Met_D);
+            System.Windows.Data.CollectionViewSource met_DViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("met_DViewSource")));
+            met_DViewSource.View.MoveCurrentToFirst();
+
+            // Load data into the table Medicine. You can modify this code as needed.
+            DB_Maket.ASSDataSetTableAdapters.DiseasesTableAdapter aSSDataSetDiseasesTableAdapter = new DB_Maket.ASSDataSetTableAdapters.DiseasesTableAdapter();
+            aSSDataSetDiseasesTableAdapter.Fill(aSSDataSet.Diseases);
+            System.Windows.Data.CollectionViewSource diseasesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("diseasesViewSource")));
+
+
+            DB_Maket.ASSDataSetTableAdapters.Treatment_MethodsTableAdapter aSSDataSetTreatment_MethodsTableAdapter = new DB_Maket.ASSDataSetTableAdapters.Treatment_MethodsTableAdapter();
+            aSSDataSetTreatment_MethodsTableAdapter.Fill(aSSDataSet.Treatment_Methods);
+            System.Windows.Data.CollectionViewSource treatment_MethodsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("treatment_MethodsViewSource")));
+
+        }
     }
 }

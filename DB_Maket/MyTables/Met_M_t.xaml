@@ -1,13 +1,18 @@
-﻿<Window x:Class="DB_Maket.MyTables.Met_M_t"
-        WindowStartupLocation="CenterScreen"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DB_Maket.MyTables"
+        xmlns:DB_Maket="clr-namespace:DB_Maket" x:Class="DB_Maket.MyTables.Met_M_t"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="Met_M_t" Height="450" Width="800">
-    <Grid>
+        Title="Метод лечения-лекарство" Height="450" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <DB_Maket:ASSDataSet x:Key="aSSDataSet"/>
+        <CollectionViewSource x:Key="met_MViewSource" Source="{Binding Met_M, Source={StaticResource aSSDataSet}}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource met_MViewSource}">
         <Grid.Background>
             <ImageBrush Stretch="UniformToFill" ImageSource="/DB_Maket;component/Pictures/Blue-Wallpaper-7.jpg"/>
         </Grid.Background>
@@ -41,6 +46,14 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
+
+        <DataGrid x:Name="met_MDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,10,10,80" RowDetailsVisibilityMode="VisibleWhenSelected" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="iD_Met_MColumn" Binding="{Binding ID_Met_M}" Header="Код" IsReadOnly="True" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="methodColumn" Binding="{Binding Method}" Header="Метод" Width="350"/>
+                <DataGridTextColumn x:Name="medicineColumn" Binding="{Binding Medicine}" Header="Лекарства" Width="350"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Window>

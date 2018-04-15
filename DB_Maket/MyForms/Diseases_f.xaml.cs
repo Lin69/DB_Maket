@@ -42,5 +42,41 @@ namespace DB_Maket.MyTables
             ww.Show();
             this.Close();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            DB_Maket.ASSDataSet aSSDataSet = ((DB_Maket.ASSDataSet)(this.FindResource("aSSDataSet")));
+            // Load data into the table Diseases. You can modify this code as needed.
+            DB_Maket.ASSDataSetTableAdapters.DiseasesTableAdapter aSSDataSetDiseasesTableAdapter = new DB_Maket.ASSDataSetTableAdapters.DiseasesTableAdapter();
+            aSSDataSetDiseasesTableAdapter.Fill(aSSDataSet.Diseases);
+            System.Windows.Data.CollectionViewSource diseasesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("diseasesViewSource")));
+            diseasesViewSource.View.MoveCurrentToFirst();
+            DB_Maket.ASSDataSetTableAdapters.Disease_typesTableAdapter aSSDataSetDisease_typesTableAdapter = new DB_Maket.ASSDataSetTableAdapters.Disease_typesTableAdapter();
+            aSSDataSetDisease_typesTableAdapter.Fill(aSSDataSet.Disease_types);
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+
+            try
+            {
+                if ((name_of_diseaseTextBox.Text == "") || (type_of_diseaseTextBox.Text == ""))
+                    MessageBox.Show("Данные не удалось обновить");
+                else
+                {
+                    DB_Maket.ASSDataSet aSSDataSet = ((DB_Maket.ASSDataSet)(this.FindResource("aSSDataSet")));
+                    DB_Maket.ASSDataSetTableAdapters.DiseasesTableAdapter aSSDataSetDiseasesTableAdapter = new DB_Maket.ASSDataSetTableAdapters.DiseasesTableAdapter();
+                    aSSDataSetDiseasesTableAdapter.Update(aSSDataSet.Diseases);
+                    MessageBox.Show("Данные успешно обновлены");
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("Данные не удалось обновить");
+            }
+
+
+        }
     }
 }

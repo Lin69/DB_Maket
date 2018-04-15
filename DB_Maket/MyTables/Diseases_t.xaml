@@ -1,16 +1,21 @@
-﻿<Window x:Class="DB_Maket.MyTables.Diseases_t"
-        WindowStartupLocation="CenterScreen"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DB_Maket.MyTables"
+        xmlns:DB_Maket="clr-namespace:DB_Maket" x:Class="DB_Maket.MyTables.Diseases_t"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="Diseases_t" Height="450" Width="800">
+        Title="Болезни" Height="450" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <DB_Maket:ASSDataSet x:Key="aSSDataSet"/>
+        <CollectionViewSource x:Key="diseasesViewSource" Source="{Binding Diseases, Source={StaticResource aSSDataSet}}"/>
+    </Window.Resources>
     <Window.Background>
         <ImageBrush Stretch="UniformToFill" ImageSource="/DB_Maket;component/Pictures/Blue-Wallpaper-7.jpg" Opacity="0.85"/>
     </Window.Background>
-    <Grid>
+    <Grid DataContext="{StaticResource diseasesViewSource}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="151*"/>
             <ColumnDefinition Width="245*"/>
@@ -45,6 +50,15 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
+
+        <DataGrid x:Name="diseasesDataGrid" AutoGenerateColumns="False" Grid.ColumnSpan="2" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,10,10,80" RowDetailsVisibilityMode="VisibleWhenSelected" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="iD_DColumn" Binding="{Binding ID_D}" Header="Код" IsReadOnly="True" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="name_of_diseaseColumn" Binding="{Binding Name_of_disease}" Header="Название лекарства" Width="200"/>
+                <DataGridTextColumn x:Name="type_of_diseaseColumn" Binding="{Binding Type_of_disease}" Header="Тип лекарства" Width="200"/>
+                <DataGridTextColumn x:Name="description_dColumn" Binding="{Binding Description_d}" Header="Описание" Width="300"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Window>

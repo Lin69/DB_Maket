@@ -42,5 +42,37 @@ namespace DB_Maket.MyTables
             ww.Show();
             this.Close();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            DB_Maket.ASSDataSet aSSDataSet = ((DB_Maket.ASSDataSet)(this.FindResource("aSSDataSet")));
+            // Load data into the table Symptoms. You can modify this code as needed.
+            DB_Maket.ASSDataSetTableAdapters.SymptomsTableAdapter aSSDataSetSymptomsTableAdapter = new DB_Maket.ASSDataSetTableAdapters.SymptomsTableAdapter();
+            aSSDataSetSymptomsTableAdapter.Fill(aSSDataSet.Symptoms);
+            System.Windows.Data.CollectionViewSource symptomsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("symptomsViewSource")));
+            symptomsViewSource.View.MoveCurrentToFirst();
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (name_sTextBox.Text == "") 
+                    MessageBox.Show("Данные не удалось обновить");
+                else
+                {
+                    DB_Maket.ASSDataSet aSSDataSet = ((DB_Maket.ASSDataSet)(this.FindResource("aSSDataSet")));
+                    // Load data into the table Symptoms. You can modify this code as needed.
+                    DB_Maket.ASSDataSetTableAdapters.SymptomsTableAdapter aSSDataSetSymptomsTableAdapter = new DB_Maket.ASSDataSetTableAdapters.SymptomsTableAdapter();
+                    aSSDataSetSymptomsTableAdapter.Update(aSSDataSet.Symptoms);
+                    MessageBox.Show("Данные успешно обновлены");
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("Данные не удалось обновить");
+            }
+        }
     }
 }

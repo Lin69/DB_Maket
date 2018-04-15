@@ -42,5 +42,46 @@ namespace DB_Maket.MyTables
             ww.Show();
             this.Close();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            DB_Maket.ASSDataSet aSSDataSet = ((DB_Maket.ASSDataSet)(this.FindResource("aSSDataSet")));
+            // Load data into the table Symptoms. You can modify this code as needed.
+            DB_Maket.ASSDataSetTableAdapters.SymptomsTableAdapter aSSDataSetSymptomsTableAdapter = new DB_Maket.ASSDataSetTableAdapters.SymptomsTableAdapter();
+            aSSDataSetSymptomsTableAdapter.Fill(aSSDataSet.Symptoms);
+            System.Windows.Data.CollectionViewSource symptomsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("symptomsViewSource")));
+
+
+            DB_Maket.ASSDataSetTableAdapters.DiseasesTableAdapter aSSDataSetDiseasesTableAdapter = new DB_Maket.ASSDataSetTableAdapters.DiseasesTableAdapter();
+            aSSDataSetDiseasesTableAdapter.Fill(aSSDataSet.Diseases);
+            System.Windows.Data.CollectionViewSource diseasesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("diseasesViewSource")));
+
+            DB_Maket.ASSDataSetTableAdapters.S_DTableAdapter aSSDataSetS_DTableAdapter = new DB_Maket.ASSDataSetTableAdapters.S_DTableAdapter();
+            aSSDataSetS_DTableAdapter.Fill(aSSDataSet.S_D);
+            System.Windows.Data.CollectionViewSource s_DViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("diseasesViewSource")));
+            s_DViewSource.View.MoveCurrentToFirst();
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if ((contraindicationTextBox.Text == "") || (contraindicationTextBox1.Text == ""))
+                    MessageBox.Show("Данные не удалось обновить");
+                else
+                {
+                    DB_Maket.ASSDataSet aSSDataSet = ((DB_Maket.ASSDataSet)(this.FindResource("aSSDataSet")));
+                    // Load data into the table Symptoms. You can modify this code as needed.
+                    DB_Maket.ASSDataSetTableAdapters.S_DTableAdapter aSSDataSetS_DTableAdapter = new DB_Maket.ASSDataSetTableAdapters.S_DTableAdapter();
+                    aSSDataSetS_DTableAdapter.Update(aSSDataSet.S_D);
+                    MessageBox.Show("Данные успешно обновлены");
+                }
+
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("Данные не удалось обновить");
+            }
+        }
     }
 }

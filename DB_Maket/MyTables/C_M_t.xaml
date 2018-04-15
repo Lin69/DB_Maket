@@ -1,13 +1,18 @@
-﻿<Window x:Class="DB_Maket.MyTables.C_M_t"
-        WindowStartupLocation="CenterScreen"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DB_Maket.MyTables"
+        xmlns:DB_Maket="clr-namespace:DB_Maket" x:Class="DB_Maket.MyTables.C_M_t"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="C_M_t" Height="450" Width="800">
-    <Grid>
+        Title="Противопоказания-лекарство" Height="450" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <DB_Maket:ASSDataSet x:Key="aSSDataSet"/>
+        <CollectionViewSource x:Key="c_MViewSource" Source="{Binding C_M, Source={StaticResource aSSDataSet}}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource c_MViewSource}">
         <Grid.Background>
             <ImageBrush Stretch="UniformToFill" ImageSource="/DB_Maket;component/Pictures/Blue-Wallpaper-7.jpg" Opacity="0.85"/>
         </Grid.Background>
@@ -31,7 +36,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button x:Name="Go_to_form" Content="Перейти к&#xD;&#xA;    форме" HorizontalAlignment="Left" Margin="290,354,0,0" VerticalAlignment="Top" Width="131" Height="44" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="Go_to_form_Click" TextOptions.TextHintingMode="Fixed">
+        <Button x:Name="Go_to_form" Content="Перейти к&#xA;    форме" HorizontalAlignment="Left" Margin="290,354,0,0" VerticalAlignment="Top" Width="131" Height="44" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="Go_to_form_Click" TextOptions.TextHintingMode="Fixed">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -41,6 +46,14 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
+
+        <DataGrid x:Name="c_MDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,10,10,80" RowDetailsVisibilityMode="VisibleWhenSelected" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="iD_C_MColumn" Binding="{Binding ID_C_M}" Header="Код" IsReadOnly="True" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="contraindicationColumn" Binding="{Binding Contraindication}" Header="Противопоказания" Width="350"/>
+                <DataGridTextColumn x:Name="medicineColumn" Binding="{Binding Medicine}" Header="Лекарство" Width="350"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Window>

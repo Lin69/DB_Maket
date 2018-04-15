@@ -34,6 +34,7 @@ namespace DB_Maket.MyTables
                 Go_to_form.Visibility = Visibility.Collapsed;
                 Go_to_form.IsEnabled = false;
             }
+
         }
 
         private void Comeback_button_Click(object sender, RoutedEventArgs e)
@@ -53,6 +54,17 @@ namespace DB_Maket.MyTables
             Met_D_f ww = new Met_D_f();
             ww.Show();
             this.Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            DB_Maket.ASSDataSet aSSDataSet = ((DB_Maket.ASSDataSet)(this.FindResource("aSSDataSet")));
+            // Load data into the table Met_D. You can modify this code as needed.
+            DB_Maket.ASSDataSetTableAdapters.Met_DTableAdapter aSSDataSetMet_DTableAdapter = new DB_Maket.ASSDataSetTableAdapters.Met_DTableAdapter();
+            aSSDataSetMet_DTableAdapter.Fill(aSSDataSet.Met_D);
+            System.Windows.Data.CollectionViewSource met_DViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("met_DViewSource")));
+            met_DViewSource.View.MoveCurrentToFirst();
         }
     }
 }

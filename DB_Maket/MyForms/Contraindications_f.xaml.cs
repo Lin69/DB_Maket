@@ -43,5 +43,36 @@ namespace DB_Maket.MyTables
             this.Close();
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            DB_Maket.ASSDataSet aSSDataSet = ((DB_Maket.ASSDataSet)(this.FindResource("aSSDataSet")));
+            // Load data into the table Contraindications. You can modify this code as needed.
+            DB_Maket.ASSDataSetTableAdapters.ContraindicationsTableAdapter aSSDataSetContraindicationsTableAdapter = new DB_Maket.ASSDataSetTableAdapters.ContraindicationsTableAdapter();
+            aSSDataSetContraindicationsTableAdapter.Fill(aSSDataSet.Contraindications);
+            System.Windows.Data.CollectionViewSource contraindicationsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("contraindicationsViewSource")));
+            contraindicationsViewSource.View.MoveCurrentToFirst();
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (name_cTextBox.Text == "")
+                    MessageBox.Show("Данные не удалось обновить");
+                else
+                {
+                    DB_Maket.ASSDataSet aSSDataSet = ((DB_Maket.ASSDataSet)(this.FindResource("aSSDataSet")));
+                    // Load data into the table Contraindications. You can modify this code as needed.
+                    DB_Maket.ASSDataSetTableAdapters.ContraindicationsTableAdapter aSSDataSetContraindicationsTableAdapter = new DB_Maket.ASSDataSetTableAdapters.ContraindicationsTableAdapter();
+                    aSSDataSetContraindicationsTableAdapter.Update(aSSDataSet.Contraindications);
+                    MessageBox.Show("Данные успешно обновлены");
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("Данные не удалось обновить");
+            }
+        }
     }
 }

@@ -34,6 +34,7 @@ namespace DB_Maket.MyTables
                 Go_to_form.Visibility = Visibility.Collapsed;
                 Go_to_form.IsEnabled = false;
             }
+
         }
 
         private void Comeback_button_Click(object sender, RoutedEventArgs e)
@@ -53,6 +54,17 @@ namespace DB_Maket.MyTables
             Treatment_methoms_f ww = new Treatment_methoms_f();
             ww.Show();
             this.Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            DB_Maket.ASSDataSet aSSDataSet = ((DB_Maket.ASSDataSet)(this.FindResource("aSSDataSet")));
+            // Load data into the table Treatment_Methods. You can modify this code as needed.
+            DB_Maket.ASSDataSetTableAdapters.Treatment_MethodsTableAdapter aSSDataSetTreatment_MethodsTableAdapter = new DB_Maket.ASSDataSetTableAdapters.Treatment_MethodsTableAdapter();
+            aSSDataSetTreatment_MethodsTableAdapter.Fill(aSSDataSet.Treatment_Methods);
+            System.Windows.Data.CollectionViewSource treatment_MethodsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("treatment_MethodsViewSource")));
+            treatment_MethodsViewSource.View.MoveCurrentToFirst();
         }
     }
 

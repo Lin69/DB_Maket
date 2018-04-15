@@ -34,6 +34,8 @@ namespace DB_Maket.MyTables
                 Go_to_form.Visibility = Visibility.Collapsed;
                 Go_to_form.IsEnabled = false;
             }
+
+
         }
 
         private void Comeback_button_Click(object sender, RoutedEventArgs e)
@@ -53,6 +55,17 @@ namespace DB_Maket.MyTables
             Medicine_f ww = new Medicine_f();
             ww.Show();
             this.Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            DB_Maket.ASSDataSet aSSDataSet = ((DB_Maket.ASSDataSet)(this.FindResource("aSSDataSet")));
+            // Load data into the table Medicine. You can modify this code as needed.
+            DB_Maket.ASSDataSetTableAdapters.MedicineTableAdapter aSSDataSetMedicineTableAdapter = new DB_Maket.ASSDataSetTableAdapters.MedicineTableAdapter();
+            aSSDataSetMedicineTableAdapter.Fill(aSSDataSet.Medicine);
+            System.Windows.Data.CollectionViewSource medicineViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("medicineViewSource")));
+            medicineViewSource.View.MoveCurrentToFirst();
         }
     }
 }
