@@ -94,8 +94,8 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
         </Grid>
-        <Button x:Name="Save_b" Content="Сохранить" HorizontalAlignment="Left" Margin="104,311,0,0" VerticalAlignment="Top" Width="78" Height="30" FontFamily="Times New Roman" FontSize="14
-                " FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="Save_Click" TextOptions.TextHintingMode="Fixed" Grid.ColumnSpan="2" Grid.Column="2">
+        <Button x:Name="Save_b" Content="Сохранить" HorizontalAlignment="Left" Margin="30,304,0,0" VerticalAlignment="Top" Width="78" Height="30" FontFamily="Times New Roman" FontSize="14
+                " FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="Save_Click" TextOptions.TextHintingMode="Fixed" Grid.Column="2">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -141,5 +141,25 @@
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="Болезни" HorizontalAlignment="Left" Margin="125,10,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="206" FontWeight="Bold" FontFamily="Times New Roman" FontSize="48" Grid.Column="1"/>
+        <Button x:Name="Delete_button" Content="Удалить&#xA;  запись" HorizontalAlignment="Left" Margin="224,306,0,0" VerticalAlignment="Top" Width="76" Height="30" FontFamily="Times New Roman" FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="Delete_Click" TextOptions.TextHintingMode="Fixed" Grid.Column="1" Grid.ColumnSpan="2">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.219"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="Plus" Content="+" HorizontalAlignment="Left" Margin="116,304,0,0" VerticalAlignment="Top" Width="34" Height="30" FontFamily="Times New Roman" FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="plus" TextOptions.TextHintingMode="Fixed" FontSize="22" Grid.Column="2" Grid.ColumnSpan="2">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.219"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
     </Grid>
 </Window>

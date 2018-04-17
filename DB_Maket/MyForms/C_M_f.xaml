@@ -101,7 +101,27 @@
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="Противопоказание&#xA;                -&#xA;       Лекарство" HorizontalContentAlignment="Center" Margin="124,31,0,0" VerticalAlignment="Top" Width="244" FontWeight="Bold" FontFamily="Times New Roman" FontSize="24" Foreground="White" HorizontalAlignment="Left"/>
-        <Button x:Name="Save_b" Content="Сохранить" HorizontalAlignment="Left" Margin="382,264,0,0" VerticalAlignment="Top" Width="77" Height="30" FontFamily="Times New Roman" FontSize="14                 " FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="Save_Click" TextOptions.TextHintingMode="Fixed">
+        <Button x:Name="Save_b" Content="Сохранить" HorizontalAlignment="Left" Margin="363,285,0,0" VerticalAlignment="Top" Width="77" Height="30" FontFamily="Times New Roman" FontSize="14                 " FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="Save_Click" TextOptions.TextHintingMode="Fixed">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.219"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="Delete_button" Content="Удалить&#xA;  запись" HorizontalAlignment="Left" Margin="276,285,0,0" VerticalAlignment="Top" Width="76" Height="30" FontFamily="Times New Roman" FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="Delete_Click" TextOptions.TextHintingMode="Fixed">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.219"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="Plus" Content="+" HorizontalAlignment="Left" Margin="451,285,0,0" VerticalAlignment="Top" Width="34" Height="30" FontFamily="Times New Roman" FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="plus" TextOptions.TextHintingMode="Fixed" FontSize="22">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

@@ -7,7 +7,7 @@
         xmlns:DB_Maket="clr-namespace:DB_Maket" x:Class="DB_Maket.MyTables.Types_of_medcine_f"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="Types_of_medcine_t" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="Типы лекарств" Height="450" Width="800" Loaded="Window_Loaded">
     <Window.Resources>
         <DB_Maket:ASSDataSet x:Key="aSSDataSet"/>
         <CollectionViewSource x:Key="disease_typesViewSource" Source="{Binding Disease_types, Source={StaticResource aSSDataSet}}"/>
@@ -99,6 +99,26 @@
                 <DataGridTextColumn x:Name="description_dtColumn" Binding="{Binding Description_mt}" Header="Описание" Width="180"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button x:Name="Delete_button" Content="Удалить&#xA;  запись" HorizontalAlignment="Left" Margin="57,311,0,0" VerticalAlignment="Top" Width="76" Height="30" FontFamily="Times New Roman" FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="Delete_Click" TextOptions.TextHintingMode="Fixed">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.219"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="Plus" Content="+" HorizontalAlignment="Left" Margin="224,311,0,0" VerticalAlignment="Top" Width="34" Height="30" FontFamily="Times New Roman" FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="plus" TextOptions.TextHintingMode="Fixed" FontSize="22">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.219"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
 
     </Grid>
 </Window>

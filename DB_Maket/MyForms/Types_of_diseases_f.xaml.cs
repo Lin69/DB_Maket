@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 namespace DB_Maket.MyTables
 {
@@ -56,23 +57,100 @@ namespace DB_Maket.MyTables
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (iD_CTextBox.Text != "")
+                try
+                {
+                    if (name_cTextBox.Text == "")
+                        MessageBox.Show("Данные не удалось обновить");
+                    else
+                    {
+                        DB_Maket.ASSDataSet aSSDataSet = ((DB_Maket.ASSDataSet)(this.FindResource("aSSDataSet")));
+                        DB_Maket.ASSDataSetTableAdapters.Disease_typesTableAdapter aSSDataSetDisease_typesTableAdapter = new DB_Maket.ASSDataSetTableAdapters.Disease_typesTableAdapter();
+                        aSSDataSetDisease_typesTableAdapter.Update(aSSDataSet.Disease_types);
+                        MessageBox.Show("Данные успешно обновлены");
+                    }
+                }
+                catch (System.Exception ex)
+                {
+                    MessageBox.Show("Данные не удалось обновить");
+                }
+            else
             {
                 if (name_cTextBox.Text == "")
-                    MessageBox.Show("Данные не удалось обновить");
+                    MessageBox.Show("Не удалось добавить запись");
                 else
-                {
-                    DB_Maket.ASSDataSet aSSDataSet = ((DB_Maket.ASSDataSet)(this.FindResource("aSSDataSet")));
-                    DB_Maket.ASSDataSetTableAdapters.Disease_typesTableAdapter aSSDataSetDisease_typesTableAdapter = new DB_Maket.ASSDataSetTableAdapters.Disease_typesTableAdapter();
-                    aSSDataSetDisease_typesTableAdapter.Update(aSSDataSet.Disease_types);
-                    MessageBox.Show("Данные успешно обновлены");
-                }
-            }
-            catch (System.Exception ex)
-            {
-                MessageBox.Show("Данные не удалось обновить");
+                    try
+                    {
+                        SqlConnection con = new SqlConnection("Data Source=DESKTOP-EUL68A7\\SQLEXPRESS;Initial Catalog=ASS;Integrated Security=True");
+                        con.Open();
+                        SqlCommand cmd = con.CreateCommand();
+                        cmd.CommandType = System.Data.CommandType.Text;
+                        cmd.CommandText = "INSERT INTO dbo.Disease_types (Name_dt,Description_dt) VALUES (" + "'" + name_cTextBox.Text + "'" + "," + "'" + description_TMTextBox.Text + "'" + ");";
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        name_cTextBox.Text = "";
+                        description_TMTextBox.Text = "";
+
+                        DB_Maket.ASSDataSet aSSDataSet = ((DB_Maket.ASSDataSet)(this.FindResource("aSSDataSet")));
+                        // Load data into the table Disease_types. You can modify this code as needed.
+                        DB_Maket.ASSDataSetTableAdapters.Disease_typesTableAdapter aSSDataSetDisease_typesTableAdapter = new DB_Maket.ASSDataSetTableAdapters.Disease_typesTableAdapter();
+                        aSSDataSetDisease_typesTableAdapter.Fill(aSSDataSet.Disease_types);
+                        System.Windows.Data.CollectionViewSource disease_typesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("disease_typesViewSource")));
+
+                        MessageBox.Show("Запись успешно добавлена");
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Не удалось добавить запись");
+                    }
+
             }
         }
 
+        private void plus(object sender, RoutedEventArgs e)
+        {
+            disease_typesDataGrid.UnselectAll();
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            string mbtext = "Удалить запись?";
+            MessageBoxButton mbutton = MessageBoxButton.OKCancel;
+            MessageBoxImage micon = MessageBoxImage.Question;
+
+            MessageBoxResult Result = MessageBox.Show(mbtext, "", mbutton, micon);
+            switch (Result)
+            {
+                case MessageBoxResult.OK:
+                    {
+                        try
+                        {
+                            SqlConnection con = new SqlConnection("Data Source=DESKTOP-EUL68A7\\SQLEXPRESS;Initial Catalog=ASS;Integrated Security=True");
+                            con.Open();
+                            string sqlstr = "DELETE FROM dbo.Disease_types WHERE ID_DIT = " + iD_CTextBox.Text;
+                            SqlDataAdapter SDA = new SqlDataAdapter(sqlstr, con);
+                            SDA.SelectCommand.ExecuteNonQuery();
+                            con.Close();
+
+                            DB_Maket.ASSDataSet aSSDataSet = ((DB_Maket.ASSDataSet)(this.FindResource("aSSDataSet")));
+                            // Load data into the table Disease_types. You can modify this code as needed.
+                            DB_Maket.ASSDataSetTableAdapters.Disease_typesTableAdapter aSSDataSetDisease_typesTableAdapter = new DB_Maket.ASSDataSetTableAdapters.Disease_typesTableAdapter();
+                            aSSDataSetDisease_typesTableAdapter.Fill(aSSDataSet.Disease_types);
+                            System.Windows.Data.CollectionViewSource disease_typesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("disease_typesViewSource")));
+                            MessageBox.Show("Запись успешно удалена");
+                            break;
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Не удалось удалить запись");
+                            break;
+                        }
+                    }
+                case MessageBoxResult.Cancel:
+                    {
+                        break;
+                    }
+            }
+        }
     }
 }

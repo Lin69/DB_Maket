@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 namespace DB_Maket.MyTables
 {
@@ -23,6 +24,8 @@ namespace DB_Maket.MyTables
         {
             InitializeComponent();
         }
+
+        
 
         private void Comeback_button_Click(object sender, RoutedEventArgs e)
         {
@@ -64,24 +67,105 @@ namespace DB_Maket.MyTables
             medicineViewSource.View.MoveCurrentToFirst();
         }
 
+        private void plus(object sender, RoutedEventArgs e)
+        {
+            c_MDataGrid.UnselectAll();
+        }
+
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (iD_C_MTextBox.Text != "")
             {
-                if ((contraindicationTextBox.Text == "") || (contraindicationTextBox1.Text == ""))
-                    MessageBox.Show("Данные не удалось обновить");
-                else
+                try
                 {
-                    DB_Maket.ASSDataSet aSSDataSet = ((DB_Maket.ASSDataSet)(this.FindResource("aSSDataSet")));
-                    // Load data into the table C_M. You can modify this code as needed.
-                    DB_Maket.ASSDataSetTableAdapters.C_MTableAdapter aSSDataSetC_MTableAdapter = new DB_Maket.ASSDataSetTableAdapters.C_MTableAdapter();
-                    aSSDataSetC_MTableAdapter.Update(aSSDataSet.C_M);
-                    MessageBox.Show("Данные успешно обновлены");
+                    if (contraindicationTextBox1.Text == "")
+                        MessageBox.Show("Данные не удалось обновить");
+                    else
+                    {
+                        DB_Maket.ASSDataSet aSSDataSet = ((DB_Maket.ASSDataSet)(this.FindResource("aSSDataSet")));
+                        // Load data into the table C_M. You can modify this code as needed.
+                        DB_Maket.ASSDataSetTableAdapters.C_MTableAdapter aSSDataSetC_MTableAdapter = new DB_Maket.ASSDataSetTableAdapters.C_MTableAdapter();
+                        aSSDataSetC_MTableAdapter.Update(aSSDataSet.C_M);
+                        MessageBox.Show("Данные успешно обновлены");
+                    }
+                }
+                catch (System.Exception ex)
+                {
+                    MessageBox.Show("Данные не удалось обновить");
                 }
             }
-            catch (System.Exception ex)
+            else				
+
             {
-                MessageBox.Show("Данные не удалось обновить");
+                if (contraindicationTextBox.Text == "")     
+                     MessageBox.Show("Не удалось добавить запись");
+                else
+                {
+                    try
+                    {
+                        SqlConnection con = new SqlConnection("Data Source=DESKTOP-EUL68A7\\SQLEXPRESS;Initial Catalog=ASS;Integrated Security=True");
+                        con.Open();
+                        SqlCommand cmd = con.CreateCommand();
+                        cmd.CommandType = System.Data.CommandType.Text;
+                        cmd.CommandText = "INSERT INTO dbo.C_M (Contraindication,Medicine) VALUES (" + contraindicationTextBox.Text + "," + contraindicationTextBox1.Text + ");";
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        contraindicationTextBox.Text = "";
+                        contraindicationTextBox1.Text = "";
+
+                        DB_Maket.ASSDataSet aSSDataSet = ((DB_Maket.ASSDataSet)(this.FindResource("aSSDataSet")));
+                        // Load data into the table C_M. You can modify this code as needed.
+                        DB_Maket.ASSDataSetTableAdapters.C_MTableAdapter aSSDataSetC_MTableAdapter = new DB_Maket.ASSDataSetTableAdapters.C_MTableAdapter();
+                        aSSDataSetC_MTableAdapter.Fill(aSSDataSet.C_M);
+                        System.Windows.Data.CollectionViewSource c_MViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("c_MViewSource")));
+
+                        MessageBox.Show("Запись успешно добавлена");
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Не удалось добавить запись");
+                    }
+                }
+            }
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            string mbtext = "Удалить запись?";
+            MessageBoxButton mbutton = MessageBoxButton.OKCancel;
+            MessageBoxImage micon = MessageBoxImage.Question;
+
+            MessageBoxResult Result = MessageBox.Show(mbtext, "", mbutton, micon);
+            switch (Result)
+            {
+                case MessageBoxResult.OK:
+                    {
+                        try
+                        {
+                            SqlConnection con = new SqlConnection("Data Source=DESKTOP-EUL68A7\\SQLEXPRESS;Initial Catalog=ASS;Integrated Security=True");
+                            con.Open();
+                            string sqlstr = "DELETE FROM dbo.C_M WHERE ID_C_M = " + iD_C_MTextBox.Text;
+                            SqlDataAdapter SDA = new SqlDataAdapter(sqlstr, con);
+                            SDA.SelectCommand.ExecuteNonQuery();
+                            con.Close();
+                            DB_Maket.ASSDataSet aSSDataSet = ((DB_Maket.ASSDataSet)(this.FindResource("aSSDataSet")));
+                            // Load data into the table C_M. You can modify this code as needed.
+                            DB_Maket.ASSDataSetTableAdapters.C_MTableAdapter aSSDataSetC_MTableAdapter = new DB_Maket.ASSDataSetTableAdapters.C_MTableAdapter();
+                            aSSDataSetC_MTableAdapter.Fill(aSSDataSet.C_M);
+                            System.Windows.Data.CollectionViewSource c_MViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("c_MViewSource")));
+                            MessageBox.Show("Запись успешно удалена");
+                            break;
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Не удалось удалить запись");
+                            break;
+                        }
+                    }
+                case MessageBoxResult.Cancel:
+                    {
+                        break;
+                    }
             }
         }
     }

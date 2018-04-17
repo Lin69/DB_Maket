@@ -47,7 +47,7 @@
             </Button.RenderTransform>
         </Button>
 
-        <Grid x:Name="grid1" DataContext="{StaticResource contraindicationsViewSource}" HorizontalAlignment="Left" Margin="121,127,0,0" VerticalAlignment="Top">
+        <Grid x:Name="grid1" DataContext="{StaticResource contraindicationsViewSource}" HorizontalAlignment="Left" Margin="105,127,0,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -58,7 +58,7 @@
             <Label Content="Код:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontWeight="Bold"/>
             <TextBox x:Name="iD_CTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding ID_C, Mode=OneWay}" VerticalAlignment="Center" Width="120" IsReadOnly="True" Cursor="Arrow" IsHitTestVisible="False"/>
         </Grid>
-        <Grid x:Name="grid2" DataContext="{StaticResource contraindicationsViewSource}" HorizontalAlignment="Left" Margin="36,154,0,0" VerticalAlignment="Top">
+        <Grid x:Name="grid2" DataContext="{StaticResource contraindicationsViewSource}" HorizontalAlignment="Left" Margin="20,154,0,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -69,7 +69,7 @@
             <Label Content="                 Название&#xD;&#xA;противопоказания:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,0,0,0" Grid.Row="0" VerticalAlignment="Top" FontWeight="Bold"/>
             <TextBox x:Name="name_cTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Name_c, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
         </Grid>
-        <Grid x:Name="grid3" DataContext="{StaticResource contraindicationsViewSource}" HorizontalAlignment="Left" Margin="86,192,0,0" VerticalAlignment="Top">
+        <Grid x:Name="grid3" DataContext="{StaticResource contraindicationsViewSource}" HorizontalAlignment="Left" Margin="70,192,0,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -78,7 +78,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label Content="Описание:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontWeight="Bold"/>
-            <TextBox x:Name="description_TMTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="69" Margin="3,4,0,-41" Grid.Row="0" Text="{Binding Description_TM, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <TextBox x:Name="description_TMTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="69" Margin="3,4,0,-41" Grid.Row="0" Text="{Binding Description_TM, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" TextWrapping="Wrap"/>
         </Grid>
         <Label Content="Противопоказания" HorizontalAlignment="Left" Margin="22,41,0,0" VerticalAlignment="Top" Width="427" FontWeight="Bold" FontFamily="Times New Roman" FontSize="36"/>
         <DataGrid x:Name="contraindicationsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="367,41,25,91" RowDetailsVisibilityMode="VisibleWhenSelected" IsReadOnly="True">
@@ -88,7 +88,27 @@
                 <DataGridTextColumn x:Name="description_TMColumn" Binding="{Binding Description_TM}" Header="Описание" Width="200"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="Save_b" Content="Сохранить" HorizontalAlignment="Left" Margin="164,294,0,0" VerticalAlignment="Top" Width="77" Height="30" FontFamily="Times New Roman" FontSize="14                 " FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="Save_Click" TextOptions.TextHintingMode="Fixed">
+        <Button x:Name="Save_b" Content="Сохранить" HorizontalAlignment="Left" Margin="153,288,0,0" VerticalAlignment="Top" Width="78" Height="30" FontFamily="Times New Roman" FontSize="14                 " FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="Save_Click" TextOptions.TextHintingMode="Fixed">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.219"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="Delete_button" Content="Удалить&#xA;  запись" HorizontalAlignment="Left" Margin="168,363,0,0" VerticalAlignment="Top" Width="76" Height="30" FontFamily="Times New Roman" FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="Delete_Click" TextOptions.TextHintingMode="Fixed">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.219"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="Plus" Content="+" HorizontalAlignment="Left" Margin="235,288,0,0" VerticalAlignment="Top" Width="34" Height="30" FontFamily="Times New Roman" FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="plus" TextOptions.TextHintingMode="Fixed" FontSize="22">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
