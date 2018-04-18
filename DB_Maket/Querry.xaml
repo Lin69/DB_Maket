@@ -1,0 +1,54 @@
+﻿<Window x:Class="DB_Maket.Querry"
+        WindowStartupLocation="CenterScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DB_Maket"
+        mc:Ignorable="d"
+        Title="Querries" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Pictures/download.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Button x:Name="Exit_button" Content="Выйти" HorizontalAlignment="Left" Margin="625,354,0,0" VerticalAlignment="Top" Width="127" Height="43" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Background="White" RenderTransformOrigin="0.5,0.5" Click="Exit_button_Click" BorderBrush="#FF707070">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.219"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="Comeback_button" Content="Вернуться" HorizontalAlignment="Left" Margin="464,354,0,0" VerticalAlignment="Top" Width="131" Height="44" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Background="White" RenderTransformOrigin="0.5,0.5" Click="Comeback_button_Click" BorderBrush="#FF707070">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.219"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Grid HorizontalAlignment="Left" Height="399" Margin="5,10,0,0" VerticalAlignment="Top" Width="420">
+            <Grid.Background>
+                <SolidColorBrush Color="Black" Opacity="0.2"/>
+            </Grid.Background>
+            <Button x:Name="b2" Content="Методы лечения" HorizontalAlignment="Left" Margin="72,187,0,0" VerticalAlignment="Top" Width="124" Height="44" FontWeight="Bold" Click="b2_Click"/>
+            <Button x:Name="b3" Content="Болезни" HorizontalAlignment="Left" Margin="72,293,0,0" VerticalAlignment="Top" Width="124" Height="45" FontWeight="Bold" Click="b3_Click"/>
+            <Button x:Name="b1" Content="Лекарства" HorizontalAlignment="Left" Margin="72,71,0,0" VerticalAlignment="Top" Width="124" Height="44" FontWeight="Bold" Click="b1_Click"/>
+            <Button x:Name="b4" Content="Противопоказания" HorizontalAlignment="Left" Margin="268,125,0,0" VerticalAlignment="Top" Width="124" Height="45" FontWeight="Bold" Click="b4_Click"/>
+            <Button x:Name="b5" Content="Симптомы" HorizontalAlignment="Left" Margin="268,242,0,0" VerticalAlignment="Top" Width="124" Height="46" FontWeight="Bold" Click="b5_Click"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="315" Margin="425,10,0,0" VerticalAlignment="Top" Width="357">
+            <Grid.Background>
+                <SolidColorBrush Color="Black" Opacity="0.2"/>
+            </Grid.Background>
+            <Button x:Name="b6" Content="Типы лекарств" HorizontalAlignment="Left" Margin="30,174,0,0" VerticalAlignment="Top" Width="124" Height="46" FontWeight="Bold" Click="b6_Click"/>
+            <Button x:Name="b7" Content="Виды болезней" HorizontalAlignment="Left" Margin="199,174,0,0" VerticalAlignment="Top" Width="124" Height="44" FontWeight="Bold" Click="b7_Click"/>
+            <Label Content="Запросы" HorizontalAlignment="Left" Margin="43,34,0,0" VerticalAlignment="Top" Width="280" Background="{x:Null}" Foreground="White" BorderBrush="Black" FontSize="48" FontFamily="Times New Roman"/>
+        </Grid>
+
+    </Grid>
+</Window>
