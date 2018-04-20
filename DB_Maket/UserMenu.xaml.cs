@@ -33,7 +33,7 @@ namespace DB_Maket
 
         private void QuarriesButton_Click(object sender, RoutedEventArgs e)
         {
-            Querries qur = new Querries();
+            Querry qur = new Querry();
             qur.Show();
             this.Close();
         }

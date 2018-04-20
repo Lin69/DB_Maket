@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DB_Maket"
         mc:Ignorable="d"
-        Title="Reports" Height="450" Width="800">
+        Title="Отчеты" Height="450" Width="800">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Pictures/1215535-biology-wallpaper.jpg"/>
@@ -31,6 +31,27 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
+        <Grid HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="439">
+            <Grid.Background>
+                <SolidColorBrush Color="White" Opacity="0.37"/>
+            </Grid.Background>
+            <Button Content="          Отчет по &#xA;противопоказаниям" HorizontalAlignment="Left" Margin="39,24,0,0" VerticalAlignment="Top" Width="129" Height="56" FontWeight="Bold" BorderBrush="Black" Click="ContrRep_open"/>
+            <Button Content="  Отчет по &#xA;лекарствам" HorizontalAlignment="Left" Margin="39,119,0,0" VerticalAlignment="Top" Width="129" Height="56" FontWeight="Bold" BorderBrush="Black" Click="Button_Click"/>
+            <Button Content="      Отчет по &#xA;типам лекарств" HorizontalAlignment="Left" Margin="39,222,0,0" VerticalAlignment="Top" Width="129" Height="56" FontWeight="Bold" BorderBrush="Black" Click="Button_Click2"/>
+            <Button Content="   Отчет по &#xA;симптомам" HorizontalAlignment="Left" Margin="235,24,0,0" VerticalAlignment="Top" Width="129" Height="56" FontWeight="Bold" BorderBrush="Black" Click="Button_Click3"/>
+            <Button Content=" Отчет по &#xA;болезням" HorizontalAlignment="Left" Margin="235,119,0,0" VerticalAlignment="Top" Width="129" Height="56" FontWeight="Bold" BorderBrush="Black" Click="Button_Click4"/>
+            <Button Content="       Отчет по &#xA;видам болезней" HorizontalAlignment="Left" Margin="235,222,0,0" VerticalAlignment="Top" Width="129" Height="56" FontWeight="Bold" BorderBrush="Black" Click="Button_Click5"/>
+            <Button Content="         Отчет по &#xA;методам лечения" HorizontalAlignment="Left" Margin="138,320,0,0" VerticalAlignment="Top" Width="129" Height="56" FontWeight="Bold" BorderBrush="Black" Click="Button_Click6"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="303" Margin="449,10,0,0" VerticalAlignment="Top" Width="333">
+            <Grid.Background>
+                <SolidColorBrush Color="White" Opacity="0.37"/>
+            </Grid.Background>
+            <Button Content="  Отчет по таблице &#xA;противопоказания-&#xD;&#xA;        лекарства" HorizontalAlignment="Left" Margin="16,68,0,0" VerticalAlignment="Top" Width="129" Height="56" FontWeight="Bold" BorderBrush="Black" Click="Button_Click7"/>
+            <Button Content="  Отчет по таблице &#xA;  методы лечения-&#xD;&#xA;        лекарства" HorizontalAlignment="Left" Margin="16,176,0,0" VerticalAlignment="Top" Width="129" Height="56" FontWeight="Bold" BorderBrush="Black" Click="Button_Click9"/>
+            <Button Content="  Отчет по таблице &#xA;методы лечения-&#xD;&#xA;        болезни" HorizontalAlignment="Left" Margin="185,68,0,0" VerticalAlignment="Top" Width="129" Height="56" FontWeight="Bold" BorderBrush="Black" Click="Button_Click8"/>
+            <Button Content="  Отчет по таблице &#xA;       симптомы-&#xD;&#xA;         болезни" HorizontalAlignment="Left" Margin="185,176,0,0" VerticalAlignment="Top" Width="129" Height="56" FontWeight="Bold" BorderBrush="Black" Click="Button_Click10"/>
+        </Grid>
 
     </Grid>
 </Window>

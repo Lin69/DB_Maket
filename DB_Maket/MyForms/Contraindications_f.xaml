@@ -1,13 +1,18 @@
-﻿<Window x:Class="DB_Maket.MyTables.Contraindications_f"
-        WindowStartupLocation="CenterScreen"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DB_Maket.MyTables"
+        xmlns:DB_Maket="clr-namespace:DB_Maket" x:Class="DB_Maket.MyTables.Contraindications_f"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="Contraindications_t" Height="450" Width="800">
-    <Grid>
+        Title="Противопоказания" Height="450" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <DB_Maket:ASSDataSet x:Key="aSSDataSet"/>
+        <CollectionViewSource x:Key="contraindicationsViewSource" Source="{Binding Contraindications, Source={StaticResource aSSDataSet}}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource contraindicationsViewSource}">
         <Grid.Background>
             <ImageBrush Stretch="UniformToFill" ImageSource="/DB_Maket;component/Pictures/images.jpg" Opacity="0.85"/>
         </Grid.Background>
@@ -32,6 +37,78 @@
             </Button.RenderTransform>
         </Button>
         <Button x:Name="Go_to_table" Content="Перейти к&#xA; таблице" HorizontalAlignment="Left" Margin="312,357,0,0" VerticalAlignment="Top" Width="131" Height="44" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="Go_to_table_Click" TextOptions.TextHintingMode="Fixed">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.219"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+
+        <Grid x:Name="grid1" DataContext="{StaticResource contraindicationsViewSource}" HorizontalAlignment="Left" Margin="105,127,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Код:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBox x:Name="iD_CTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding ID_C, Mode=OneWay}" VerticalAlignment="Center" Width="120" IsReadOnly="True" Cursor="Arrow" IsHitTestVisible="False"/>
+        </Grid>
+        <Grid x:Name="grid2" DataContext="{StaticResource contraindicationsViewSource}" HorizontalAlignment="Left" Margin="20,154,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="                 Название&#xD;&#xA;противопоказания:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,0,0,0" Grid.Row="0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <TextBox x:Name="name_cTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Name_c, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+        <Grid x:Name="grid3" DataContext="{StaticResource contraindicationsViewSource}" HorizontalAlignment="Left" Margin="70,192,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Описание:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBox x:Name="description_TMTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="69" Margin="3,4,0,-41" Grid.Row="0" Text="{Binding Description_TM, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" TextWrapping="Wrap"/>
+        </Grid>
+        <Label Content="Противопоказания" HorizontalAlignment="Left" Margin="22,41,0,0" VerticalAlignment="Top" Width="427" FontWeight="Bold" FontFamily="Times New Roman" FontSize="36"/>
+        <DataGrid x:Name="contraindicationsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="367,41,25,91" RowDetailsVisibilityMode="VisibleWhenSelected" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="iD_CColumn" Binding="{Binding ID_C}" Header="Код" IsReadOnly="True" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="name_cColumn" Binding="{Binding Name_c}" Header="Название" Width="130"/>
+                <DataGridTextColumn x:Name="description_TMColumn" Binding="{Binding Description_TM}" Header="Описание" Width="200"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="Save_b" Content="Сохранить" HorizontalAlignment="Left" Margin="153,288,0,0" VerticalAlignment="Top" Width="78" Height="30" FontFamily="Times New Roman" FontSize="14                 " FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="Save_Click" TextOptions.TextHintingMode="Fixed">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.219"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="Delete_button" Content="Удалить&#xA;  запись" HorizontalAlignment="Left" Margin="168,363,0,0" VerticalAlignment="Top" Width="76" Height="30" FontFamily="Times New Roman" FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="Delete_Click" TextOptions.TextHintingMode="Fixed">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.219"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="Plus" Content="+" HorizontalAlignment="Left" Margin="235,288,0,0" VerticalAlignment="Top" Width="34" Height="30" FontFamily="Times New Roman" FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="plus" TextOptions.TextHintingMode="Fixed" FontSize="22">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

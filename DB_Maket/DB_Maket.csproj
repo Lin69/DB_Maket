@@ -34,8 +34,38 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="InputBox">
+      <HintPath>..\..\Inputbox\InputBox\obj\Debug\InputBox.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -48,12 +78,21 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ASSDataSet.cs">
+      <DependentUpon>ASSDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ASSDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ASSDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Forms.xaml.cs">
       <DependentUpon>Forms.xaml</DependentUpon>
     </Compile>
@@ -123,12 +162,100 @@
     <Compile Include="MyTables\Types_of_medcine_t.xaml.cs">
       <DependentUpon>Types_of_medcine_t.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Querries.xaml.cs">
-      <DependentUpon>Querries.xaml</DependentUpon>
+    <Compile Include="Querries\Cont.xaml.cs">
+      <DependentUpon>Cont.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Querries\Dis.xaml.cs">
+      <DependentUpon>Dis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Querries\Dit.xaml.cs">
+      <DependentUpon>Dit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Querries\Med.xaml.cs">
+      <DependentUpon>Med.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Querries\Met.xaml.cs">
+      <DependentUpon>Met.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Querries\MM.xaml.cs">
+      <DependentUpon>MM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Querries\Symp.xaml.cs">
+      <DependentUpon>Symp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Querry.xaml.cs">
+      <DependentUpon>Querry.xaml</DependentUpon>
     </Compile>
     <Compile Include="Reports.xaml.cs">
       <DependentUpon>Reports.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Report\CMRF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\CMRF.Designer.cs">
+      <DependentUpon>CMRF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\CntrF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\CntrF.Designer.cs">
+      <DependentUpon>CntrF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Drepf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\Drepf.Designer.cs">
+      <DependentUpon>Drepf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Medrf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\Medrf.Designer.cs">
+      <DependentUpon>Medrf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\metdrf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\metdrf.Designer.cs">
+      <DependentUpon>metdrf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Metmrf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\Metmrf.Designer.cs">
+      <DependentUpon>Metmrf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MMRF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\MMRF.Designer.cs">
+      <DependentUpon>MMRF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\SDRF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\SDRF.Designer.cs">
+      <DependentUpon>SDRF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\SYMRF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\SYMRF.Designer.cs">
+      <DependentUpon>SYMRF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\tymrf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\tymrf.Designer.cs">
+      <DependentUpon>tymrf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\typdrf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\typdrf.Designer.cs">
+      <DependentUpon>typdrf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Tables.xaml.cs">
       <DependentUpon>Tables.xaml</DependentUpon>
     </Compile>
@@ -246,9 +373,37 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Querries.xaml">
+    <Page Include="Querries\Cont.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Querries\Dis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Querries\Dit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Querries\Med.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Querries\Met.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Querries\MM.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Querries\Symp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Querry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="Reports.xaml">
       <SubType>Designer</SubType>
@@ -281,6 +436,62 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\CMrep.rdlc" />
+    <EmbeddedResource Include="Report\CMRF.resx">
+      <DependentUpon>CMRF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CntrF.resx">
+      <DependentUpon>CntrF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ContR.rdlc" />
+    <EmbeddedResource Include="Report\Disrep.rdlc" />
+    <EmbeddedResource Include="Report\Drepf.resx">
+      <DependentUpon>Drepf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Medrep.rdlc" />
+    <EmbeddedResource Include="Report\Medrf.resx">
+      <DependentUpon>Medrf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Metdrep.rdlc" />
+    <EmbeddedResource Include="Report\metdrf.resx">
+      <DependentUpon>metdrf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\MetmReprdlc.rdlc" />
+    <EmbeddedResource Include="Report\Metmrf.resx">
+      <DependentUpon>Metmrf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\MMrep.rdlc" />
+    <EmbeddedResource Include="Report\MMRF.resx">
+      <DependentUpon>MMRF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\SDrep.rdlc" />
+    <EmbeddedResource Include="Report\SDRF.resx">
+      <DependentUpon>SDRF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\symrep.rdlc" />
+    <EmbeddedResource Include="Report\SYMRF.resx">
+      <DependentUpon>SYMRF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\tymrf.resx">
+      <DependentUpon>tymrf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\typdrf.resx">
+      <DependentUpon>typdrf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\typedrep.rdlc" />
+    <EmbeddedResource Include="Report\typemrep.rdlc" />
+    <None Include="ASSDataSet.xsc">
+      <DependentUpon>ASSDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ASSDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ASSDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ASSDataSet.xss">
+      <DependentUpon>ASSDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -296,6 +507,8 @@
     <Resource Include="Pictures\1215535-biology-wallpaper.jpg" />
     <Resource Include="Pictures\402522157-biology-wallpapers.jpg" />
     <Resource Include="Pictures\899119-www.wallpapersfan.com.jpg" />
+    <Resource Include="Pictures\ar.png" />
+    <Resource Include="Pictures\ar2.png" />
     <Resource Include="Pictures\awesome-red-lamborghini-aventador-18-black-wallpaper-4k-wallpapersafari-3840x2160.jpg" />
     <Resource Include="Pictures\Blue-Wallpaper-7.jpg" />
     <Resource Include="Pictures\download.jpg" />
@@ -304,6 +517,20 @@
     <Resource Include="Pictures\New-gene-editing-technique-to-cure-incurable-diseases-and-extend-lifespan.jpg" />
     <Resource Include="Pictures\science-lab-wallpaper-for-android-For-Desktop-Wallpaper.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

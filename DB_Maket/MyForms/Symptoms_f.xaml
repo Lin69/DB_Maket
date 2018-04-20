@@ -1,13 +1,18 @@
-﻿<Window x:Class="DB_Maket.MyTables.Symptoms_f"
-        WindowStartupLocation="CenterScreen"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DB_Maket.MyTables"
+        xmlns:DB_Maket="clr-namespace:DB_Maket" x:Class="DB_Maket.MyTables.Symptoms_f"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="Symptoms_t" Height="450" Width="800">
-    <Grid>
+        Title="Симптомы" Height="450" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <DB_Maket:ASSDataSet x:Key="aSSDataSet"/>
+        <CollectionViewSource x:Key="symptomsViewSource" Source="{Binding Symptoms, Source={StaticResource aSSDataSet}}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource symptomsViewSource}">
         <Grid.Background>
             <ImageBrush Stretch="UniformToFill" ImageSource="/DB_Maket;component/Pictures/images.jpg" Opacity="0.85"/>
         </Grid.Background>
@@ -32,6 +37,78 @@
             </Button.RenderTransform>
         </Button>
         <Button x:Name="Go_to_table" Content="Перейти к&#xA; таблице" HorizontalAlignment="Left" Margin="290,354,0,0" VerticalAlignment="Top" Width="131" Height="44" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="Go_to_table_Click" TextOptions.TextHintingMode="Fixed">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.219"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+
+        <Grid x:Name="grid1" DataContext="{StaticResource symptomsViewSource}" HorizontalAlignment="Left" Margin="117,134,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Код:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBox x:Name="iD_STextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding ID_S, Mode=OneWay}" VerticalAlignment="Center" Width="120" IsReadOnlyCaretVisible="True" IsReadOnly="True" IsHitTestVisible="False" Cursor="Arrow"/>
+        </Grid>
+        <Grid x:Name="grid3" DataContext="{StaticResource symptomsViewSource}" HorizontalAlignment="Left" Margin="82,202,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Описание:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBox x:Name="description_sTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="66" Margin="3,4,0,-38" Grid.Row="0" Text="{Binding Description_s, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" TextWrapping="Wrap"/>
+        </Grid>
+        <DataGrid x:Name="symptomsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="382,55,28,109" RowDetailsVisibilityMode="VisibleWhenSelected" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="iD_SColumn" Binding="{Binding ID_S}" Header="Код" IsReadOnly="True" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="name_sColumn" Binding="{Binding Name_s}" Header="Название симптома" Width="130"/>
+                <DataGridTextColumn x:Name="description_sColumn" Binding="{Binding Description_s}" Header="Описание" Width="200"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid x:Name="grid2" HorizontalAlignment="Left" Margin="87,160,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Название&#xD;&#xA;симтома:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBox x:Name="name_sTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Name_s, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+        <Label Content="Симптомы" HorizontalAlignment="Left" Margin="67,44,0,0" VerticalAlignment="Top" Width="244" FontWeight="Bold" FontFamily="Times New Roman" FontSize="48"/>
+        <Button x:Name="Save_b" Content="Сохранить" HorizontalAlignment="Left" Margin="164,304,0,0" VerticalAlignment="Top" Width="77" Height="30" FontFamily="Times New Roman" FontSize="14                 " FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="Save_Click" TextOptions.TextHintingMode="Fixed">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.219"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="Delete_button" Content="Удалить&#xA;  запись" HorizontalAlignment="Left" Margin="78,305,0,0" VerticalAlignment="Top" Width="76" Height="30" FontFamily="Times New Roman" FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="Delete_Click" TextOptions.TextHintingMode="Fixed">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.219"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="Plus" Content="+" HorizontalAlignment="Left" Margin="248,303,0,0" VerticalAlignment="Top" Width="34" Height="30" FontFamily="Times New Roman" FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="plus" TextOptions.TextHintingMode="Fixed" FontSize="22">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

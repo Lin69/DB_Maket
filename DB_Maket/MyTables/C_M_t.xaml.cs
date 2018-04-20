@@ -35,6 +35,7 @@ namespace DB_Maket.MyTables
                 Go_to_form.IsEnabled = false;
             }
 
+
         }
 
         private void Comeback_button_Click(object sender, RoutedEventArgs e)
@@ -54,6 +55,17 @@ namespace DB_Maket.MyTables
             C_M_f ww = new C_M_f();
             ww.Show();
             this.Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            DB_Maket.ASSDataSet aSSDataSet = ((DB_Maket.ASSDataSet)(this.FindResource("aSSDataSet")));
+            // Load data into the table C_M. You can modify this code as needed.
+            DB_Maket.ASSDataSetTableAdapters.C_MTableAdapter aSSDataSetC_MTableAdapter = new DB_Maket.ASSDataSetTableAdapters.C_MTableAdapter();
+            aSSDataSetC_MTableAdapter.Fill(aSSDataSet.C_M);
+            System.Windows.Data.CollectionViewSource c_MViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("c_MViewSource")));
+            c_MViewSource.View.MoveCurrentToFirst();
         }
     }
 }

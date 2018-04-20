@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DB_Maket"
         mc:Ignorable="d"
-        Title="Forms" Height="450" Width="800">
+        Title="Формы" Height="450" Width="800">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Pictures/awesome-red-lamborghini-aventador-18-black-wallpaper-4k-wallpapersafari-3840x2160.jpg" Stretch="UniformToFill"/>

@@ -1,13 +1,18 @@
-﻿<Window x:Class="DB_Maket.MyTables.Treatment_methoms_t"
-        WindowStartupLocation="CenterScreen"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DB_Maket.MyTables"
+        xmlns:DB_Maket="clr-namespace:DB_Maket" x:Class="DB_Maket.MyTables.Treatment_methoms_t"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="Treatment_methoms_t" Height="450" Width="800">
-    <Grid>
+        Title="Методы лечения" Height="450" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <DB_Maket:ASSDataSet x:Key="aSSDataSet"/>
+        <CollectionViewSource x:Key="treatment_MethodsViewSource" Source="{Binding Treatment_Methods, Source={StaticResource aSSDataSet}}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource treatment_MethodsViewSource}">
         <Grid.Background>
             <ImageBrush Stretch="UniformToFill" ImageSource="/DB_Maket;component/Pictures/Blue-Wallpaper-7.jpg" Opacity="0.85"/>
         </Grid.Background>
@@ -41,6 +46,15 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
+
+        <DataGrid x:Name="treatment_MethodsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,10,10,80" RowDetailsVisibilityMode="VisibleWhenSelected" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="iD_TMColumn" Binding="{Binding ID_TM}" Header="Код" IsReadOnly="True" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="methodNameColumn" Binding="{Binding MethodName}" Header="Название метода" Width="230"/>
+                <DataGridTextColumn x:Name="time_of_treatmentColumn" Binding="{Binding Time_of_treatment}" Header="Время лечения" Width="230"/>
+                <DataGridTextColumn x:Name="description_TMColumn" Binding="{Binding Description_TM}" Header="Описание" Width="230"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Window>

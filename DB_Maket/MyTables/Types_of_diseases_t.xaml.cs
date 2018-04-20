@@ -54,5 +54,16 @@ namespace DB_Maket.MyTables
             ww.Show();
             this.Close();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            DB_Maket.ASSDataSet aSSDataSet = ((DB_Maket.ASSDataSet)(this.FindResource("aSSDataSet")));
+            // Load data into the table Disease_types. You can modify this code as needed.
+            DB_Maket.ASSDataSetTableAdapters.Disease_typesTableAdapter aSSDataSetDisease_typesTableAdapter = new DB_Maket.ASSDataSetTableAdapters.Disease_typesTableAdapter();
+            aSSDataSetDisease_typesTableAdapter.Fill(aSSDataSet.Disease_types);
+            System.Windows.Data.CollectionViewSource disease_typesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("disease_typesViewSource")));
+            disease_typesViewSource.View.MoveCurrentToFirst();
+        }
     }
 }

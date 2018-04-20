@@ -44,6 +44,72 @@ namespace DB_Maket
         {
             this.Close();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Report.Medrf mr = new Report.Medrf();
+            mr.Show();
+        }
+
+        private void ContrRep_open(object sender, RoutedEventArgs e)
+        {
+            Report.CntrF cr = new Report.CntrF();
+            cr.Show();
+        }
+
+        private void Button_Click3(object sender, RoutedEventArgs e)
+        {
+            Report.SYMRF mr = new Report.SYMRF();
+            mr.Show();
+        }
+
+        private void Button_Click2(object sender, RoutedEventArgs e)
+        {
+            Report.tymrf mr = new Report.tymrf();
+            mr.Show();
+        }
+
+        private void Button_Click4(object sender, RoutedEventArgs e)
+        {
+            Report.Drepf mr = new Report.Drepf();
+            mr.Show();
+        }
+
+        private void Button_Click5(object sender, RoutedEventArgs e)
+        {
+            Report.typdrf mr = new Report.typdrf();
+            mr.Show();
+        }
+
+        private void Button_Click6(object sender, RoutedEventArgs e)
+        {
+            Report.MMRF mr = new Report.MMRF();
+            mr.Show();
+        }
+
+        private void Button_Click7(object sender, RoutedEventArgs e)
+        {
+            Report.CMRF mr = new Report.CMRF();
+            mr.Show();
+        }
+
+        private void Button_Click9(object sender, RoutedEventArgs e)
+        {
+            Report.Metmrf mr = new Report.Metmrf();
+            mr.Show();
+        }
+
+        private void Button_Click8(object sender, RoutedEventArgs e)
+        {
+            Report.metdrf mr = new Report.metdrf();
+            mr.Show();
+        }
+
+        private void Button_Click10(object sender, RoutedEventArgs e)
+        {
+            Report.SDRF mr = new Report.SDRF();
+            mr.Show();
+        }
     }
 }
 
