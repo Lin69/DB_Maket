@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="InputBox">
+      <HintPath>..\..\Inputbox\InputBox\obj\Debug\InputBox.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
@@ -504,6 +507,8 @@
     <Resource Include="Pictures\1215535-biology-wallpaper.jpg" />
     <Resource Include="Pictures\402522157-biology-wallpapers.jpg" />
     <Resource Include="Pictures\899119-www.wallpapersfan.com.jpg" />
+    <Resource Include="Pictures\ar.png" />
+    <Resource Include="Pictures\ar2.png" />
     <Resource Include="Pictures\awesome-red-lamborghini-aventador-18-black-wallpaper-4k-wallpapersafari-3840x2160.jpg" />
     <Resource Include="Pictures\Blue-Wallpaper-7.jpg" />
     <Resource Include="Pictures\download.jpg" />

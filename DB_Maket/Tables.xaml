@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DB_Maket"
         mc:Ignorable="d"
-        Title="Tables" Height="450" Width="800">
+        Title="Таблицы" Height="450" Width="800">
     <Grid>
         <Grid.Background>
             <ImageBrush Stretch="UniformToFill" ImageSource="Pictures/New-gene-editing-technique-to-cure-incurable-diseases-and-extend-lifespan.jpg" Opacity="0.7"/>

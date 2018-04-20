@@ -44,6 +44,7 @@ namespace DB_Maket
         {
             Querry myq = new Querry();
             this.Close();
+            Environment.Exit(0);
         }
 
         private void b1_Click(object sender, RoutedEventArgs e)

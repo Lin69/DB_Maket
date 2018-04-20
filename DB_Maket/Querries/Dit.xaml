@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DB_Maket.Querries"
         mc:Ignorable="d"
-        Title="" Height="450" Width="800">
+        Title="" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/DB_Maket;component/Pictures/science-lab-wallpaper-for-android-For-Desktop-Wallpaper.jpg"/>
+        </Grid.Background>
         <DataGrid x:Name="DG1" HorizontalAlignment="Left" Height="253" Margin="10,156,0,0" VerticalAlignment="Top" Width="552" IsReadOnly="True"/>
         <Button x:Name="Exit_button" Content="Закрыть" HorizontalAlignment="Left" Margin="610,365,0,0" VerticalAlignment="Top" Width="128" Height="44" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="Exit_button_Click">
             <Button.RenderTransform>
@@ -23,9 +26,12 @@
                 <SolidColorBrush Color="White" Opacity="0.4"/>
             </Grid.Background>
             <ComboBox x:Name="cb1" HorizontalAlignment="Left" Margin="151,60,0,0" VerticalAlignment="Top" Width="149" Height="31"/>
-            <Button x:Name="Search" Content="Поиск" HorizontalAlignment="Left" Margin="442,60,0,0" VerticalAlignment="Top" Width="90" Height="31"/>
+            <Button x:Name="Search" Content="Поиск" HorizontalAlignment="Left" Margin="355,60,0,0" VerticalAlignment="Top" Width="90" Height="31" Click="Search_Click"/>
             <TextBlock HorizontalAlignment="Left" Margin="21,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="31" Width="114"><Run FontWeight="Bold" Text="    Название "/><Run FontWeight="Bold" Text="вида"/><LineBreak/><Run FontWeight="Bold" Text="         болезни"/></TextBlock>
-            <Button x:Name="AS" Content="-&gt;" Margin="356,39,162,69" VerticalContentAlignment="Top" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalContentAlignment="Center">
+            <Button x:Name="AS" Content="-&gt;" Margin="500,40,18,68" VerticalContentAlignment="Top" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalContentAlignment="Center" Click="AS_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/DB_Maket;component/Pictures/ar.png"/>
+                </Button.Background>
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -35,7 +41,10 @@
                     </TransformGroup>
                 </Button.RenderTransform>
             </Button>
-            <Button x:Name="DS" Content="-&gt;" Margin="356,77,162,31" VerticalContentAlignment="Top" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalContentAlignment="Center">
+            <Button x:Name="DS" Content="-&gt;" Margin="500,78,18,30" VerticalContentAlignment="Top" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalContentAlignment="Center" Click="DS_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/DB_Maket;component/Pictures/ar.png"/>
+                </Button.Background>
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -45,6 +54,13 @@
                     </TransformGroup>
                 </Button.RenderTransform>
             </Button>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="146" Margin="567,156,0,0" VerticalAlignment="Top" Width="215">
+            <Grid.Background>
+                <SolidColorBrush Color="White" Opacity="0.25"/>
+            </Grid.Background>
+            <Label Content="Запросы" HorizontalAlignment="Left" Margin="74,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Button x:Name="Search_Copy" Content="Все болезни" HorizontalAlignment="Left" Margin="62,55,0,0" VerticalAlignment="Top" Width="90" Height="31" Click="DOIT"/>
         </Grid>
 
     </Grid>
