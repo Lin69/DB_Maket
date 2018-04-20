@@ -16,27 +16,7 @@
         <Grid.Background>
             <ImageBrush Stretch="UniformToFill" ImageSource="/DB_Maket;component/Pictures/Blue-Wallpaper-7.jpg" Opacity="0.85"/>
         </Grid.Background>
-        <Button x:Name="Exit_button" Content="Выйти" HorizontalAlignment="Left" Margin="638,354,0,0" VerticalAlignment="Top" Width="128" Height="44" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="Exit_button_Click">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.219"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
-        <Button x:Name="Comeback_button" Content="Вернуться" HorizontalAlignment="Left" Margin="464,354,0,0" VerticalAlignment="Top" Width="131" Height="44" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="Comeback_button_Click">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.219"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
-        <Button x:Name="Go_to_form" Content="Перейти к&#xA;    форме" HorizontalAlignment="Left" Margin="290,354,0,0" VerticalAlignment="Top" Width="131" Height="44" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="Go_to_form_Click" TextOptions.TextHintingMode="Fixed">
+        <Button x:Name="Comeback_button" Content="Вернуться" HorizontalAlignment="Left" Margin="630,361,0,0" VerticalAlignment="Top" Width="131" Height="44" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Background="#FFB7C6C7" RenderTransformOrigin="0.5,0.5" Click="Comeback_button_Click">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

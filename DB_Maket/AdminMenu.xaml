@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DB_Maket"
         mc:Ignorable="d"
-        Title="AdminMenu" Height="450" Width="800">
+        Title="Врач" Height="450" Width="800">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Pictures/402522157-biology-wallpapers.jpg"/>
