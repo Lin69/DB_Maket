@@ -37,12 +37,6 @@ namespace DB_Maket.MyTables
             this.Close();
         }
 
-        private void Go_to_table_Click(object sender, RoutedEventArgs e)
-        {
-            Medicine_t ww = new Medicine_t();
-            ww.Show();
-            this.Close();
-        }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {

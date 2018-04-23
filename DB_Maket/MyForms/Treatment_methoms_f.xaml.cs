@@ -38,12 +38,6 @@ namespace DB_Maket.MyTables
             this.Close();
         }
 
-        private void Go_to_table_Click(object sender, RoutedEventArgs e)
-        {
-            Treatment_methoms_t ww = new Treatment_methoms_t();
-            ww.Show();
-            this.Close();
-        }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {

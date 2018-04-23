@@ -23,19 +23,6 @@ namespace DB_Maket.MyTables
         {
             InitializeComponent();
 
-            if (MainWindow.isAdmin == true)
-            {
-                Go_to_form.Visibility = Visibility.Visible;
-                Go_to_form.IsEnabled = true;
-
-            }
-            else
-            {
-                Go_to_form.Visibility = Visibility.Collapsed;
-                Go_to_form.IsEnabled = false;
-            }
-
-
         }
 
         private void Comeback_button_Click(object sender, RoutedEventArgs e)
@@ -50,12 +37,6 @@ namespace DB_Maket.MyTables
             this.Close();
         }
 
-        private void Go_to_form_Click(object sender, RoutedEventArgs e)
-        {
-            Medicine_f ww = new Medicine_f();
-            ww.Show();
-            this.Close();
-        }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
